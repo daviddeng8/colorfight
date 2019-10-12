@@ -78,7 +78,7 @@ class Colorfight:
         while True:
             while not self.info_queue.empty():
                 info = self.info_queue.get()
-            
+
             if self.game_id == 0:
                 self.game_id = info["info"]["game_id"]
 
@@ -92,15 +92,15 @@ class Colorfight:
                 if info['info']['game_version'] != GAME_VERSION:
                     print("Please update your bot. You can do git pull or download from the website.")
                 break
-            
+
             time.sleep(0.005)
-                
+
         self._update(info)
         return True
 
     def register(self, username, password, join_key = ''):
-        self.action_queue.put({'action': 'register', 
-                'username': username, 
+        self.action_queue.put({'action': 'register',
+                'username': username,
                 'password': password,
                 'join_key': join_key
         })
@@ -133,7 +133,7 @@ class Colorfight:
             /return: a string representing a command
         '''
         return "{} {} {} {}".format(CMD_BUILD, position.x, position.y, building)
-            
+
     def upgrade(self, position):
         '''
             /param position: a Position object to upgrade
